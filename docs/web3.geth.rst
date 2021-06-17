@@ -294,7 +294,7 @@ The following methods are available on the ``web3.geth.personal`` namespace.
 
     .. code-block:: python
 
-        >>> web3.geth.personal.lock_account('0xd3CdA913deB6f67967B99D67aCDFa1712C293601')
+        >>> web3.geth.personal.lock_account('some_private_key')
 
 
 .. py:method:: lockAccount()
@@ -315,9 +315,9 @@ The following methods are available on the ``web3.geth.personal`` namespace.
 
     .. code-block:: python
 
-        >>> web3.geth.personal.unlock_account('0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'wrong-passphrase')
+        >>> web3.geth.personal.unlock_account('some_private_key', 'wrong-passphrase')
         False
-        >>> web3.geth.personal.unlock_account('0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'the-passphrase')
+        >>> web3.geth.personal.unlock_account('some_private_key', 'the-passphrase')
         True
 
 

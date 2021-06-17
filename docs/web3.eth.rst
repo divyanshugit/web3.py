@@ -221,7 +221,7 @@ The following methods are available on the ``web3.eth`` namespace.
 
     .. code-block:: python
 
-        >>> web3.eth.get_balance('0xd3CdA913deB6f67967B99D67aCDFa1712C293601')
+        >>> web3.eth.get_balance('public_address_of_senders_account')
         77320681768999138915
 
 
@@ -385,7 +385,7 @@ The following methods are available on the ``web3.eth`` namespace.
         >>> web3.eth.get_code('0x6C8f2A135f6ed072DE4503Bd7C4999a1a17F824B')
         '0x6060604052361561027c5760e060020a60003504630199.....'
         # For a private key address.
-        >>> web3.eth.get_code('0xd3CdA913deB6f67967B99D67aCDFa1712C293601')
+        >>> web3.eth.get_code('public_address_of_senders_account')
         '0x'
 
 
@@ -710,7 +710,7 @@ The following methods are available on the ``web3.eth`` namespace.
 
     .. code-block:: python
 
-        >>> web3.eth.get_transaction_count('0xd3CdA913deB6f67967B99D67aCDFa1712C293601')
+        >>> web3.eth.get_transaction_count('public_address_of_senders_account')
         340
 
 
@@ -754,7 +754,7 @@ The following methods are available on the ``web3.eth`` namespace.
 
     .. code-block:: python
 
-        >>> web3.eth.send_transaction({'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'from': web3.eth.coinbase, 'value': 12345})
+        >>> web3.eth.send_transaction({'to': 'public_address_of_senders_account', 'from': web3.eth.coinbase, 'value': 12345})
         HexBytes('0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331')
 
 .. py:method:: Eth.sendTransaction(transaction)
@@ -775,7 +775,7 @@ The following methods are available on the ``web3.eth`` namespace.
             nonce=w3.eth.get_transaction_count(w3.eth.coinbase),
             gasPrice=w3.eth.gas_price,
             gas=100000,
-            to='0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+            to='public_address_of_senders_account',
             value=1,
             data=b'',
             )
@@ -800,7 +800,7 @@ The following methods are available on the ``web3.eth`` namespace.
             nonce=w3.eth.get_transaction_count(public_address_of_senders_account),
             gasPrice=w3.eth.gas_price,
             gas=100000,
-            to='0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+            to='public_address_of_senders_account',
             value=12345,
             data=b'',
           ),
@@ -845,13 +845,13 @@ The following methods are available on the ``web3.eth`` namespace.
     .. code-block:: python
 
         >>> tx = web3.eth.send_transaction({
-                'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+                'to': 'public_address_of_senders_account',
                 'from': web3.eth.coinbase,
                 'value': 1000
             })
         '0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331'
         >>> web3.eth.replace_transaction('0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331', {
-                'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+                'to': 'public_address_of_senders_account',
                 'from': web3.eth.coinbase,
                 'value': 2000
             })
@@ -879,7 +879,7 @@ The following methods are available on the ``web3.eth`` namespace.
     .. code-block:: python
 
         >>> tx = web3.eth.send_transaction({
-                'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+                'to': 'public_address_of_senders_account',
                 'from': web3.eth.coinbase,
                 'value': 1000
             })
@@ -906,17 +906,17 @@ The following methods are available on the ``web3.eth`` namespace.
     .. code-block:: python
 
         >>> web3.eth.sign(
-              '0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+              'public_address_of_senders_account',
               text='some-text-tö-sign')
         '0x1a8bbe6eab8c72a219385681efefe565afd3accee35f516f8edf5ae82208fbd45a58f9f9116d8d88ba40fcd29076d6eada7027a3b412a9db55a0164547810cc401'
 
         >>> web3.eth.sign(
-              '0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+              'public_address_of_senders_account',
               data=b'some-text-t\xc3\xb6-sign')
         '0x1a8bbe6eab8c72a219385681efefe565afd3accee35f516f8edf5ae82208fbd45a58f9f9116d8d88ba40fcd29076d6eada7027a3b412a9db55a0164547810cc401'
 
         >>> web3.eth.sign(
-              '0xd3CdA913deB6f67967B99D67aCDFa1712C293601',
+              'public_address_of_senders_account',
               hexstr='0x736f6d652d746578742d74c3b62d7369676e')
         '0x1a8bbe6eab8c72a219385681efefe565afd3accee35f516f8edf5ae82208fbd45a58f9f9116d8d88ba40fcd29076d6eada7027a3b412a9db55a0164547810cc401'
 
@@ -978,7 +978,7 @@ The following methods are available on the ``web3.eth`` namespace.
 
     .. code-block:: python
 
-        >>> web3.eth.estimate_gas({'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'from':web3.eth.coinbase, 'value': 12345})
+        >>> web3.eth.estimate_gas({'to': 'public_address_of_senders_account', 'from':web3.eth.coinbase, 'value': 12345})
         21000
 
 .. py:method:: Eth.estimateGas(transaction, block_identifier=None)
